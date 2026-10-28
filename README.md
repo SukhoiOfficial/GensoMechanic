@@ -5,11 +5,11 @@
 | 模块 | 版本 | 内容 |
 | --- | --- | --- |
 | [Genso Core](gensocore/) | 0.4.1 | 公共模组入口与模块依赖基础 |
-| [Genso Mining](gensomining/README.md) | 0.1.6 | 动力采矿机、地域矿脉、地质勘探、采矿炸药及数据驱动的开采配方；[查看内容展示](gensomining/docs/SHOWCASE.md) |
+| [Genso Mining](gensomining/README.md) | 0.1.6 | 动力采矿机、地域矿脉、地质勘探、采矿炸药及数据驱动的开采配方；[查看内容展示](gensomining/README.md#内容展示) |
 
 Genso Mining 依赖 Genso Core，Genso Core 依赖 Create。安装采矿模块时，需要同时安装两份模组 JAR 及 Create 的必要依赖。
 
-各模块的功能说明、截图与使用规则收录在对应模块目录中。采矿模块可从[模块介绍](gensomining/README.md)或[图文展示](gensomining/docs/SHOWCASE.md)开始浏览。
+各模块的功能说明、截图与使用规则收录在对应模块目录中。采矿模块可从[模块介绍](gensomining/README.md)开始浏览，完整[图文展示](gensomining/README.md#内容展示)位于介绍末尾。
 
 ## 开发环境与构建
 
