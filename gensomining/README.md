@@ -2,6 +2,10 @@
 
 Genso Mining 为 Create 提供动力采矿机与地质勘探系统。需要 Genso Core 0.4.1，目标环境为 Minecraft 1.21.1 / NeoForge 21.1.250 / Create 6.0.10。
 
+[返回项目首页](../README.md) · [查看完整图文展示](docs/SHOWCASE.md)
+
+![动力采矿机开采安山岩](docs/images/andesite-mining.png)
+
 ## 内容
 
 - **动力采矿机**：使用 Create 动力开采当前区域的矿脉，支持自动输入、输出和流体润滑。

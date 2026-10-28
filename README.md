@@ -4,20 +4,12 @@
 
 | 模块 | 版本 | 内容 |
 | --- | --- | --- |
-| Genso Core | 0.4.1 | 公共模组入口与模块依赖基础 |
-| Genso Mining | 0.1.6 | 动力采矿机、地域矿脉、地质勘探、采矿炸药及数据驱动的开采配方 |
+| [Genso Core](gensocore/) | 0.4.1 | 公共模组入口与模块依赖基础 |
+| [Genso Mining](gensomining/README.md) | 0.1.6 | 动力采矿机、地域矿脉、地质勘探、采矿炸药及数据驱动的开采配方；[查看内容展示](gensomining/docs/SHOWCASE.md) |
 
 Genso Mining 依赖 Genso Core，Genso Core 依赖 Create。安装采矿模块时，需要同时安装两份模组 JAR 及 Create 的必要依赖。
 
-## 采矿模块
-
-- 使用 Create 动力驱动采矿机，支持物品与流体自动化接口。
-- 主世界与下界矿脉具有群系偏好；可通过数据包配置矿脉、岩石背景及开采配方。
-- 地质扫描器用于勘探；可选接入 Xaero 地图，显示发现的矿脉。
-- 土制炸药与硝化炸药提供不同开采修正，润滑剂用于降低开采时间与应力。
-- 提供 JEI 配方展示与 Jade 信息联动；Biomes O' Plenty 可扩展下界优势群系，并启用玫瑰石英晶簇。
-
-更多内容见 [采矿模块说明](gensomining/README.md)。
+各模块的功能说明、截图与使用规则收录在对应模块目录中。采矿模块可从[模块介绍](gensomining/README.md)或[图文展示](gensomining/docs/SHOWCASE.md)开始浏览。
 
 ## 开发环境与构建
 
