@@ -1,0 +1,15 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "tag": "gensomining:storage_blocks/sulfur"
+    }
+  ],
+  "processing_time": 400,
+  "results": [
+    {
+      "id": "gensomining:sulfur_dust",
+      "count": 9
+    }
+  ]
+}

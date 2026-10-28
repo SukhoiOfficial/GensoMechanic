@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "gensomining:storage_blocks/sulfur"
+    }
+  ],
+  "result": {
+    "id": "gensomining:sulfur",
+    "count": 9
+  }
+}

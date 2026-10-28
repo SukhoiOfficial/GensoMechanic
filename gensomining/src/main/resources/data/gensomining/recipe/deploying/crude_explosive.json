@@ -1,0 +1,17 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "tag": "minecraft:sand"
+    },
+    {
+      "tag": "c:gunpowders"
+    }
+  ],
+  "results": [
+    {
+      "id": "gensomining:crude_explosive",
+      "count": 4
+    }
+  ]
+}

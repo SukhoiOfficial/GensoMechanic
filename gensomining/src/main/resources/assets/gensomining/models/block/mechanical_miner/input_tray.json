@@ -1,0 +1,109 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "1": "create:block/girder_pole",
+    "3": "create:block/encased_pipe",
+    "4": "create:block/spout",
+    "5": "create:block/pipes",
+    "6": "create:block/pipes_connected",
+    "7": "create:block/andesite_casing",
+    "8": "create:block/andesite_casing_connected",
+    "9": "create:block/gearbox",
+    "10": "create:block/andesite_casing_very_short",
+    "11": "create:block/funnel/andesite_funnel",
+    "12": "create:block/packager_details",
+    "14": "create:block/fan_side",
+    "15": "create:block/fan_casing",
+    "16": "create:block/fan_blades",
+    "17": "create:block/axis",
+    "18": "create:block/axis_top",
+    "20": "block/anvil",
+    "21": "gensomining:block/mechanical_miner",
+    "particle": "create:block/girder",
+    "funnel_open": "gensomining:block/mechanical_miner_funnel"
+  },
+  "elements": [
+    {
+      "name": "plate",
+      "from": [
+        2.001,
+        2,
+        19
+      ],
+      "to": [
+        13.999,
+        4,
+        31
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          8,
+          4.49975,
+          21
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            1,
+            6.5,
+            7,
+            7.5
+          ],
+          "texture": "#12"
+        },
+        "east": {
+          "uv": [
+            1,
+            6.5,
+            7,
+            7.5
+          ],
+          "texture": "#12"
+        },
+        "south": {
+          "uv": [
+            1,
+            6.5,
+            7,
+            7.5
+          ],
+          "texture": "#12"
+        },
+        "west": {
+          "uv": [
+            1,
+            6.5,
+            7,
+            7.5
+          ],
+          "texture": "#12"
+        },
+        "up": {
+          "uv": [
+            1,
+            1,
+            7,
+            7
+          ],
+          "rotation": 180,
+          "texture": "#12"
+        },
+        "down": {
+          "uv": [
+            1,
+            1,
+            7,
+            7
+          ],
+          "rotation": 180,
+          "texture": "#12"
+        }
+      }
+    }
+  ],
+  "ambientocclusion": false,
+  "render_type": "minecraft:cutout_mipped"
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "name": { "translate": "rock_background.gensomining.rock_layer" },
+  "icon": "minecraft:stone",
+  "conditions": {
+    "dimensions": { "allow": ["minecraft:overworld"] }
+  },
+  "priority": 0,
+  "capacity": 4
+}

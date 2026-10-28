@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "BBB",
+    "BBB",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:raw_materials/bauxite"
+    }
+  },
+  "result": {
+    "id": "gensomining:bauxite_block",
+    "count": 1
+  }
+}

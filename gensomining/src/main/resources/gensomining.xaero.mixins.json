@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.gensomechanic.mining.client.compat.xaero.mixin",
+  "plugin": "dev.gensomechanic.mining.client.compat.xaero.mixin.XaeroMixinPlugin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "MinimapHighlighterMixin",
+    "WorldMapHighlighterMixin",
+    "MinimapLabelsMixin",
+    "WorldMapLabelsMixin",
+    "MinimapSettingsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

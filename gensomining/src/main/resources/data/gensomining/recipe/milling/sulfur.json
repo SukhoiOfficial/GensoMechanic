@@ -1,0 +1,15 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "tag": "gensomining:materials/sulfur"
+    }
+  ],
+  "processing_time": 200,
+  "results": [
+    {
+      "id": "gensomining:sulfur_dust",
+      "count": 1
+    }
+  ]
+}

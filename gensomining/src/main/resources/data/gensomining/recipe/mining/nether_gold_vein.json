@@ -1,0 +1,131 @@
+{
+  "type": "gensomining:mining",
+  "vein_id": "gensomining:nether_gold_vein",
+  "display_block": "minecraft:nether_gold_ore",
+  "stress": 48,
+  "processing_time": 3200,
+  "ingredients": [],
+  "results": [
+    {
+      "id": "minecraft:raw_gold",
+      "result_id": "resource",
+      "count": 1,
+      "chance": 0.8,
+      "roll_mode": "per_item"
+    },
+    {
+      "id": "minecraft:netherrack",
+      "result_id": "stone",
+      "count": 2,
+      "chance": 1,
+      "roll_mode": "per_item"
+    }
+  ],
+  "modifiers": {
+    "lubricants": [
+      {
+        "id": "water",
+        "input": {
+          "type": "neoforge:single",
+          "fluid": "minecraft:water",
+          "amount": 100
+        },
+        "effects": {
+          "time_multiplier": 0.75,
+          "stress_multiplier": 0.75
+        },
+        "neoforge:conditions": [
+          {
+            "type": "gensomining:fluid_tag_empty",
+            "tag": "c:plantoil"
+          }
+        ]
+      },
+      {
+        "id": "plant_oil",
+        "input": {
+          "type": "neoforge:tag",
+          "tag": "c:plantoil",
+          "amount": 100
+        },
+        "effects": {
+          "time_multiplier": 0.75,
+          "stress_multiplier": 0.75
+        },
+        "neoforge:conditions": [
+          {
+            "type": "neoforge:not",
+            "value": {
+              "type": "gensomining:fluid_tag_empty",
+              "tag": "c:plantoil"
+            }
+          }
+        ]
+      }
+    ],
+    "explosives": [
+      {
+        "id": "crude_explosive",
+        "input": {
+          "ingredient": {
+            "item": "gensomining:crude_explosive"
+          },
+          "count": 1
+        },
+        "effects": {
+          "additional_results": [
+            {
+              "id": "minecraft:raw_gold",
+              "result_id": "resource_bonus",
+              "count": 1,
+              "chance": 0.8,
+              "roll_mode": "per_item"
+            },
+            {
+              "id": "create:cinder_flour",
+              "result_id": "cinder_flour_bonus",
+              "count": 2,
+              "chance": 1,
+              "roll_mode": "per_item"
+            }
+          ]
+        }
+      },
+      {
+        "id": "nitro_explosive",
+        "input": {
+          "ingredient": {
+            "item": "gensomining:nitro_explosive"
+          },
+          "count": 1
+        },
+        "effects": {
+          "capacity_cost_add": -0.5,
+          "additional_results": [
+            {
+              "id": "minecraft:raw_gold",
+              "result_id": "resource_bonus",
+              "count": 3,
+              "chance": 0.8,
+              "roll_mode": "per_item"
+            },
+            {
+              "id": "minecraft:netherrack",
+              "result_id": "stone_bonus",
+              "count": 2,
+              "chance": 1,
+              "roll_mode": "per_item"
+            },
+            {
+              "id": "create:cinder_flour",
+              "result_id": "cinder_flour_bonus",
+              "count": 4,
+              "chance": 1,
+              "roll_mode": "per_item"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

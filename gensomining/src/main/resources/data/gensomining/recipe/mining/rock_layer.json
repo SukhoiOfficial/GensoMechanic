@@ -1,0 +1,64 @@
+{
+  "type": "gensomining:mining",
+  "vein_id": "gensomining:rock_layer",
+  "display_block": "minecraft:stone",
+  "stress": 8,
+  "processing_time": 6400,
+  "ingredients": [],
+  "results": [
+    {
+      "id": "minecraft:cobblestone",
+      "result_id": "stone",
+      "count": 2
+    },
+    {
+      "id": "minecraft:andesite",
+      "result_id": "andesite",
+      "count": 1,
+      "chance": 0.1
+    }
+  ],
+  "modifiers": {
+    "lubricants": [
+      {
+        "id": "water",
+        "input": {
+          "type": "neoforge:single",
+          "fluid": "minecraft:water",
+          "amount": 100
+        },
+        "effects": {
+          "time_multiplier": 0.75,
+          "stress_multiplier": 0.75
+        },
+        "neoforge:conditions": [
+          {
+            "type": "gensomining:fluid_tag_empty",
+            "tag": "c:plantoil"
+          }
+        ]
+      },
+      {
+        "id": "plant_oil",
+        "input": {
+          "type": "neoforge:tag",
+          "tag": "c:plantoil",
+          "amount": 100
+        },
+        "effects": {
+          "time_multiplier": 0.75,
+          "stress_multiplier": 0.75
+        },
+        "neoforge:conditions": [
+          {
+            "type": "neoforge:not",
+            "value": {
+              "type": "gensomining:fluid_tag_empty",
+              "tag": "c:plantoil"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

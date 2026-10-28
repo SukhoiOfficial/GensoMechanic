@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "gensomining:storage_blocks/nitre"
+    }
+  ],
+  "result": {
+    "id": "gensomining:nitre",
+    "count": 9
+  }
+}

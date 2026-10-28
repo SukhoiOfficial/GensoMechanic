@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "gensomining:block/explosives/explosive_bottom",
+    "side": "gensomining:block/explosives/explosive_side",
+    "top": "gensomining:block/explosives/crude_explosive_top"
+  }
+}

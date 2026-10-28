@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "placement": {
+    "bucket_chunks": 8,
+    "proposals_per_bucket": 0.7,
+    "rounds": 4,
+    "district_distance_chunks": 8.5,
+    "distance_variation": 0.1
+  },
+  "geology": {
+    "enabled": false,
+    "region_scale_chunks": 64,
+    "strength": 2,
+    "baseline_share": 0.2,
+    "coarse_component": {
+      "scale_multiplier": 2,
+      "weight": 0.28
+    },
+    "domain_warp": {
+      "scale_chunks": 113,
+      "max_offset_chunks": 0
+    },
+    "size_coupling": 0
+  },
+  "environment": {
+    "biome_sampling": {
+      "mode": "single_height",
+      "y": 64
+    },
+    "biomes": {
+      "allow": [],
+      "deny": [
+        "#minecraft:is_ocean"
+      ]
+    },
+    "min_biome_fraction": 1,
+    "min_member_fraction": 1
+  },
+  "resources": [
+    {
+      "category": "gensomining:andesite_layer",
+      "weight": 1.25,
+      "variants": {
+        "gensomining:andesite_layer": 100
+      },
+      "priority": 0,
+      "geology_strength": 0
+    },
+    {
+      "category": "gensomining:copper_vein",
+      "weight": 1,
+      "variants": {
+        "gensomining:copper_vein": 100,
+        "gensomining:large_copper_vein": 0
+      },
+      "priority": 0,
+      "geology_strength": 0
+    },
+    {
+      "category": "gensomining:iron_vein",
+      "weight": 1,
+      "variants": {
+        "gensomining:iron_vein": 100,
+        "gensomining:large_iron_vein": 0
+      },
+      "priority": 0,
+      "geology_strength": 0
+    },
+    {
+      "category": "gensomining:coal_field",
+      "weight": 1,
+      "variants": {
+        "gensomining:coal_field": 100,
+        "gensomining:large_coal_field": 0
+      },
+      "priority": 0,
+      "geology_strength": 0
+    },
+    {
+      "category": "gensomining:lapis_vein",
+      "weight": 0.25,
+      "variants": {
+        "gensomining:lapis_vein": 100
+      },
+      "priority": 0,
+      "geology_strength": 0
+    },
+    {
+      "category": "gensomining:bauxite_vein",
+      "weight": 0.4,
+      "variants": {
+        "gensomining:bauxite_vein": 100
+      },
+      "priority": 0,
+      "geology_strength": 0
+    }
+  ],
+  "biome_profiles": [
+    {
+      "id": "mountains",
+      "priority": 30,
+      "biomes": [
+        "#c:is_mountain",
+        "#c:is_hill",
+        "#c:is_plateau"
+      ],
+      "category_multipliers": {
+        "gensomining:andesite_layer": 1,
+        "gensomining:copper_vein": 1,
+        "gensomining:iron_vein": 6,
+        "gensomining:coal_field": 1
+      },
+      "variant_weights": {
+        "gensomining:iron_vein": {
+          "gensomining:iron_vein": 80,
+          "gensomining:large_iron_vein": 20
+        }
+      },
+      "influence": 1
+    },
+    {
+      "id": "drylands",
+      "priority": 20,
+      "biomes": [
+        "#c:is_dry/overworld",
+        "#c:is_desert",
+        "#c:is_badlands",
+        "#c:is_savanna"
+      ],
+      "category_multipliers": {
+        "gensomining:andesite_layer": 1,
+        "gensomining:copper_vein": 3,
+        "gensomining:iron_vein": 1,
+        "gensomining:coal_field": 1
+      },
+      "variant_weights": {
+        "gensomining:copper_vein": {
+          "gensomining:copper_vein": 80,
+          "gensomining:large_copper_vein": 20
+        }
+      },
+      "influence": 1
+    },
+    {
+      "id": "forests",
+      "priority": 10,
+      "biomes": [
+        "#c:is_forest",
+        "#c:is_jungle",
+        "#c:is_swamp"
+      ],
+      "category_multipliers": {
+        "gensomining:andesite_layer": 1,
+        "gensomining:copper_vein": 1,
+        "gensomining:iron_vein": 1,
+        "gensomining:coal_field": 3
+      },
+      "variant_weights": {
+        "gensomining:coal_field": {
+          "gensomining:coal_field": 80,
+          "gensomining:large_coal_field": 20
+        }
+      },
+      "influence": 1
+    }
+  ],
+  "districts": {
+    "min_veins": 3,
+    "max_veins": 8,
+    "patch_fraction": 0.65,
+    "member_step_chunks": 3,
+    "radius_chunks": 12,
+    "edge_gap_chunks": 1,
+    "link_distance_chunks": 6,
+    "placement_attempts": 36,
+    "environment_radius_chunks": 2
+  }
+}

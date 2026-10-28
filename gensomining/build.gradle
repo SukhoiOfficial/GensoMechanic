@@ -1,0 +1,128 @@
+ext.modDisplayName = 'Genso Mining'
+ext.modDescription = 'Mining module for Genso Mechanic.'
+ext.modReleaseVersion = '0.1.6'
+apply from: rootProject.file('gradle/mod.gradle')
+
+repositories {
+    maven { url = 'https://api.modrinth.com/maven'; content { includeGroup 'maven.modrinth' } }
+    maven { url = 'https://maven.blamejared.com'; content { includeGroup 'mezz.jei' } }
+}
+
+sourceSets {
+    main.resources {
+        srcDir 'src/generated/resources'
+        exclude '**/.cache/**', '**/*.bbmodel'
+    }
+    gameTest {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+configurations {
+    xaeroLibraryCarrier
+    gameTestImplementation.extendsFrom implementation
+    gameTestCompileOnly.extendsFrom compileOnly
+    gameTestRuntimeOnly.extendsFrom runtimeOnly
+}
+
+def minimapVersion = 'neoforge-1.21.1-26.5.0'
+def worldmapVersion = 'neoforge-1.21.1-1.46.0'
+dependencies {
+    // Optional development-only BOP integration; these files are never included in the mod JAR.
+    if (providers.gradleProperty('withBop').isPresent()) {
+        def bopModsDirectory = providers.gradleProperty('bopModsDir')
+        if (!bopModsDirectory.isPresent()) throw new GradleException('withBop requires -PbopModsDir=/path/to/bop-development-mods; see docs/BUILDING.md.')
+        def bopMods = fileTree(bopModsDirectory.get()) {
+            include '*BiomesOPlenty-neoforge-1.21.1-21.1.0.14.jar', 'TerraBlender-neoforge-1.21.1-4.1.0.8.jar', 'GlitchCore-neoforge-1.21.1-2.1.0.2.jar'
+        }
+        if (bopMods.files.size() != 3) throw new GradleException('withBop needs BOP 21.1.0.14, TerraBlender 4.1.0.8 and GlitchCore 2.1.0.2; set -PbopModsDir to their directory.')
+        runtimeOnly files(bopMods)
+    }
+    compileOnly 'mezz.jei:jei-1.21.1-common-api:19.21.0.247'
+    compileOnly 'mezz.jei:jei-1.21.1-neoforge-api:19.21.0.247'
+    if (!providers.gradleProperty('withoutJei').isPresent()) {
+        runtimeOnly 'mezz.jei:jei-1.21.1-neoforge:19.21.0.247'
+    }
+    compileOnly 'maven.modrinth:jade:15.10.6+neoforge'
+    if (!providers.gradleProperty('withoutJade').isPresent()) {
+        runtimeOnly 'maven.modrinth:jade:15.10.6+neoforge'
+    }
+    compileOnly "maven.modrinth:xaeros-minimap:${minimapVersion}"
+    compileOnly "maven.modrinth:xaeros-world-map:${worldmapVersion}"
+    xaeroLibraryCarrier "maven.modrinth:xaeros-minimap:${minimapVersion}"
+    compileOnly files(layout.buildDirectory.file('xaero-libs/xaerolib-neoforge-1.21.1-1.7.3.jar')).builtBy('extractXaeroLibrary')
+    if (providers.gradleProperty('withXaero').isPresent()) {
+        if (!providers.gradleProperty('withoutXaeroMinimap').isPresent()) runtimeOnly "maven.modrinth:xaeros-minimap:${minimapVersion}"
+        if (!providers.gradleProperty('withoutXaeroWorldmap').isPresent()) runtimeOnly "maven.modrinth:xaeros-world-map:${worldmapVersion}"
+    }
+    gameTestCompileOnly "dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}"
+}
+
+// Compilation needs XaeroLib's API. Runtime maps supply their own nested library;
+// neither the extracted JAR nor any optional dependency is included in our JAR.
+def xaeroCarrier = configurations.xaeroLibraryCarrier
+tasks.register('extractXaeroLibrary', Sync) {
+    from({ zipTree(xaeroCarrier.singleFile) }) {
+        include 'META-INF/jarjar/xaerolib-neoforge-1.21.1-1.7.3.jar'
+        eachFile { path = name }
+        includeEmptyDirs = false
+    }
+    into layout.buildDirectory.dir('xaero-libs')
+}
+
+tasks.named('generateModMetadata') {
+    inputs.property('miningXaeroMixin', 'gensomining.xaero.mixins.json')
+    doLast {
+        new File(destinationDir, 'META-INF/neoforge.mods.toml').append(
+                '\n[[mixins]]\nconfig="gensomining.xaero.mixins.json"\n', 'UTF-8')
+    }
+}
+
+evaluationDependsOn(':gensocore')
+def miningGameTests = providers.gradleProperty('withGameTests').isPresent()
+neoForge {
+    addModdingDependenciesTo sourceSets.gameTest
+    mods {
+        gensocore { sourceSet project(':gensocore').sourceSets.main }
+        gensomining { if (miningGameTests) sourceSet sourceSets.gameTest }
+    }
+    runs {
+        client {
+            client()
+            gameDirectory = file('run/client')
+            if (miningGameTests) sourceSet = sourceSets.gameTest
+            if (providers.gradleProperty('verificationWorld').isPresent()) {
+                programArguments.addAll '--quickPlaySingleplayer', providers.gradleProperty('verificationWorld').get()
+            }
+            if (providers.gradleProperty('verificationExit').isPresent()) systemProperty 'gensomining.verificationExit', 'true'
+            if (providers.gradleProperty('explosiveClientCheck').isPresent()) systemProperty 'gensomining.explosiveClientCheck', 'true'
+            if (providers.gradleProperty('backgroundClientCheck').isPresent()) systemProperty 'gensomining.backgroundClientCheck', 'true'
+        }
+        server {
+            server()
+            gameDirectory = file('run/server')
+            programArgument '--nogui'
+        }
+        data {
+            data()
+            gameDirectory = file('run/data')
+            programArguments.addAll '--mod', project.name, '--all',
+                    '--output', file('src/generated/resources').absolutePath,
+                    '--existing', file('src/main/resources').absolutePath
+        }
+        gameTestServer {
+            type = 'gameTestServer'
+            sourceSet = sourceSets.gameTest
+            gameDirectory = file('run/gametest')
+            systemProperty 'neoforge.enabledGameTestNamespaces', providers.gradleProperty('gameTestNamespace').getOrElse(project.name)
+
+        }
+        configureEach { logLevel = org.slf4j.event.Level.INFO }
+    }
+}
+tasks.named('check') { dependsOn tasks.named('gameTestClasses') }
+tasks.named('runGameTestServer') {
+    doFirst {
+        if (!miningGameTests) throw new GradleException('Use -PwithGameTests runGameTestServer to load the isolated mining tests.')
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "name": {
+    "translate": "rock_background.gensomining.nether_rock_layer"
+  },
+  "icon": "minecraft:netherrack",
+  "conditions": {
+    "dimensions": {
+      "allow": [
+        "minecraft:the_nether"
+      ]
+    }
+  },
+  "priority": 0,
+  "capacity": 4
+}

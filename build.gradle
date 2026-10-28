@@ -1,0 +1,24 @@
+plugins {
+    id 'base'
+    id 'net.neoforged.moddev' version '2.0.147' apply false
+}
+version = mod_version
+group = mod_group_id
+
+// Each module produces its own mod JAR and sources JAR.
+def modProjects = [project(':gensocore'), project(':gensomining')]
+modProjects.each { evaluationDependsOn(it.path) }
+
+tasks.register('collectJars', Sync) {
+    group = 'build'
+    description = 'Collect the independent mod JARs and their sources.'
+    modProjects.each { mod ->
+        dependsOn "${mod.path}:build"
+        from(mod.tasks.named('jar'), mod.tasks.named('sourcesJar'))
+    }
+    into layout.buildDirectory.dir("distributions")
+}
+tasks.named('assemble') { dependsOn 'collectJars' }
+tasks.named('check') {
+    modProjects.each { dependsOn "${it.path}:check" }
+}

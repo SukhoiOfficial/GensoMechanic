@@ -1,0 +1,39 @@
+apply from: rootProject.file('gradle/platform.gradle')
+if (project.hasProperty('modReleaseVersion')) version = modReleaseVersion
+
+// Release filenames use the product name; registry IDs remain project.name.
+def releaseNames = [gensocore: 'GensoCore', gensomining: 'GensoMining']
+base { archivesName = releaseNames[project.name] }
+java { withSourcesJar() }
+def ownModId = project.name
+def isCore = ownModId == 'gensocore'
+if (!isCore) {
+    dependencies { implementation project(':gensocore') }
+}
+neoForge {
+    mods {
+        "${ownModId}" { sourceSet sourceSets.main }
+    }
+}
+def metadataValues = [
+    mod_id: ownModId, mod_name: modDisplayName, mod_description: modDescription,
+    mod_version: version.toString(), mod_authors: mod_authors, mod_license: mod_license,
+    loader_version_range: loader_version_range, neo_version: neo_version,
+    minecraft_version_range: minecraft_version_range,
+    dependency_id: isCore ? 'create' : 'gensocore',
+    dependency_version: isCore ? create_version_range : "[${rootProject.core_version}]"
+]
+def generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
+    inputs.properties metadataValues
+    from(rootProject.file('templates')) { expand metadataValues }
+    into layout.buildDirectory.dir('generated/modMetadata')
+}
+sourceSets.main.resources.srcDir(generateModMetadata)
+neoForge.ideSyncTask generateModMetadata
+tasks.withType(Jar).configureEach {
+    includeEmptyDirs = false
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+    from(rootProject.files('LICENSE', 'LICENSE-ASSETS.md', 'CREDITS.md', 'AI_DISCLOSURE.md'))
+    from(rootProject.file('LICENSES')) { into 'LICENSES' }
+}

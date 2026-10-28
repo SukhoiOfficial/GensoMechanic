@@ -1,0 +1,51 @@
+# Gradle and build output
+.gradle/
+.gradle-user-home/
+**/build/
+**/out/
+**/bin/
+**/src/generated/resources/.cache/
+
+# Development game instances and local verification output
+**/run/
+**/runs/
+**/logs/
+**/crash-reports/
+**/saves/
+**/verification/
+**/releases/
+*.log
+hs_err_pid*
+replay_pid*
+
+# Local tools, settings and credentials
+.idea/
+.vscode/
+.settings/
+.classpath
+.project
+*.iml
+*.launch
+.env
+.env.*
+local.properties
+*.key
+*.pem
+*.p12
+*.pfx
+**/__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# Reference material and unpublished working art
+/references/
+/art/
+/art-source/
+**/*.bbmodel
+**/*.blend
+
+# Dependencies and distributables (the Wrapper is required)
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+*.zip

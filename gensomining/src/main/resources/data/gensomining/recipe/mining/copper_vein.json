@@ -1,0 +1,127 @@
+{
+  "type": "gensomining:mining",
+  "vein_id": "gensomining:copper_vein",
+  "display_block": "minecraft:raw_copper_block",
+  "stress": 16,
+  "processing_time": 3200,
+  "ingredients": [],
+  "results": [
+    {
+      "id": "minecraft:raw_copper",
+      "result_id": "resource",
+      "count": 2
+    },
+    {
+      "id": "minecraft:cobblestone",
+      "result_id": "stone",
+      "count": 2
+    }
+  ],
+  "modifiers": {
+    "lubricants": [
+      {
+        "id": "water",
+        "input": {
+          "type": "neoforge:single",
+          "fluid": "minecraft:water",
+          "amount": 100
+        },
+        "effects": {
+          "time_multiplier": 0.75,
+          "stress_multiplier": 0.75
+        },
+        "neoforge:conditions": [
+          {
+            "type": "gensomining:fluid_tag_empty",
+            "tag": "c:plantoil"
+          }
+        ]
+      },
+      {
+        "id": "plant_oil",
+        "input": {
+          "type": "neoforge:tag",
+          "tag": "c:plantoil",
+          "amount": 100
+        },
+        "effects": {
+          "time_multiplier": 0.75,
+          "stress_multiplier": 0.75
+        },
+        "neoforge:conditions": [
+          {
+            "type": "neoforge:not",
+            "value": {
+              "type": "gensomining:fluid_tag_empty",
+              "tag": "c:plantoil"
+            }
+          }
+        ]
+      }
+    ],
+    "explosives": [
+      {
+        "id": "crude_explosive",
+        "input": {
+          "ingredient": {
+            "item": "gensomining:crude_explosive"
+          },
+          "count": 1
+        },
+        "effects": {
+          "additional_results": [
+            {
+              "id": "minecraft:raw_copper",
+              "result_id": "resource_bonus",
+              "count": 2,
+              "chance": 1.0,
+              "roll_mode": "stack"
+            },
+            {
+              "id": "minecraft:gravel",
+              "result_id": "gravel_bonus",
+              "count": 2,
+              "chance": 1.0,
+              "roll_mode": "stack"
+            }
+          ]
+        }
+      },
+      {
+        "id": "nitro_explosive",
+        "input": {
+          "ingredient": {
+            "item": "gensomining:nitro_explosive"
+          },
+          "count": 1
+        },
+        "effects": {
+          "capacity_cost_add": -0.5,
+          "additional_results": [
+            {
+              "id": "minecraft:raw_copper",
+              "result_id": "resource_bonus",
+              "count": 6,
+              "chance": 1.0,
+              "roll_mode": "stack"
+            },
+            {
+              "id": "minecraft:cobblestone",
+              "result_id": "stone_bonus",
+              "count": 2,
+              "chance": 1.0,
+              "roll_mode": "stack"
+            },
+            {
+              "id": "minecraft:gravel",
+              "result_id": "gravel_bonus",
+              "count": 4,
+              "chance": 1.0,
+              "roll_mode": "stack"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

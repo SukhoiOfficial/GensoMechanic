@@ -1,0 +1,41 @@
+# Original models and textures — CC BY 4.0
+
+Copyright (c) 2026 Sukhoi / SukhoiOfficial.
+
+The original models and textures in the paths listed below are licensed under the **Creative Commons Attribution 4.0 International License (CC BY 4.0)**. This is a separate asset license from the MIT license used for the project's code.
+
+- Full legal text: [LICENSES/CC-BY-4.0.txt](LICENSES/CC-BY-4.0.txt)
+- Canonical license: <https://creativecommons.org/licenses/by/4.0/>
+- Author: Sukhoi / SukhoiOfficial
+- Source: <https://github.com/SukhoiOfficial/GensoMechanic>
+
+## Scope in this repository
+
+The asset license applies only to the project's original files under these model and texture directories, including their subdirectories:
+
+```text
+gensocore/src/main/resources/assets/gensocore/models/
+gensocore/src/main/resources/assets/gensocore/textures/
+gensocore/src/generated/resources/assets/gensocore/models/
+gensocore/src/generated/resources/assets/gensocore/textures/
+gensomining/src/main/resources/assets/gensomining/models/
+gensomining/src/main/resources/assets/gensomining/textures/
+gensomining/src/generated/resources/assets/gensomining/models/
+gensomining/src/generated/resources/assets/gensomining/textures/
+```
+
+Some listed directories may not exist in a particular version. Listing a path does not assert that the version contains files there.
+
+In the built JARs, the same license applies to the corresponding original files under `assets/gensocore/models/`, `assets/gensocore/textures/`, `assets/gensomining/models/` and `assets/gensomining/textures/`. Model files generated into the paths above are included in this scope.
+
+Source code, recipes, tags, other data configurations, blockstate definitions, language files and project documentation remain under the [MIT license](LICENSE), except for files carrying their own third-party license notices. This asset license does not grant rights to referenced external resources, dependencies, trademarks or third-party material.
+
+## Attribution
+
+Credit **Sukhoi / SukhoiOfficial**, provide a source link and a link to CC BY 4.0, and indicate whether changes were made, as required by the license. An example is provided in [CREDITS.md](CREDITS.md). Attribution must not imply endorsement of your work by the author.
+
+## 中文说明
+
+以上范围内的原创模型和贴图由 Sukhoi / SukhoiOfficial 制作，采用 **知识共享署名 4.0 国际许可协议（CC BY 4.0）**。协议允许共享、修改及商业使用，使用时需按协议要求署名、提供许可链接并说明修改。
+
+代码、配方、标签、其他数据配置、方块状态定义、语言文件和项目文档采用 MIT；带有第三方独立许可声明的文件以其原许可为准。引用外部模组资源不会使这些资源转为本项目的 CC BY 4.0 内容。本文概述适用范围，具体权利义务以所链接的完整许可文本为准。

@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "dimensions": [
+    "minecraft:the_nether"
+  ],
+  "placement": {
+    "bucket_chunks": 8,
+    "proposals_per_bucket": 0.7,
+    "rounds": 4,
+    "district_distance_chunks": 8.5,
+    "distance_variation": 0.1
+  },
+  "geology": {
+    "enabled": false,
+    "region_scale_chunks": 64,
+    "strength": 2,
+    "baseline_share": 0.2,
+    "coarse_component": {
+      "scale_multiplier": 2,
+      "weight": 0.28
+    },
+    "domain_warp": {
+      "scale_chunks": 113,
+      "max_offset_chunks": 0
+    },
+    "size_coupling": 0
+  },
+  "environment": {
+    "biome_sampling": {
+      "mode": "single_height",
+      "y": 64
+    },
+    "biomes": {
+      "allow": [],
+      "deny": []
+    },
+    "min_biome_fraction": 1,
+    "min_member_fraction": 1
+  },
+  "resources": [
+    {
+      "category": "gensomining:nether_gold_vein",
+      "weight": 4,
+      "variants": {
+        "gensomining:nether_gold_vein": 100
+      },
+      "priority": 0,
+      "geology_strength": 0
+    },
+    {
+      "category": "gensomining:glowstone_cluster",
+      "weight": 4,
+      "variants": {
+        "gensomining:glowstone_cluster": 100
+      },
+      "priority": 0,
+      "geology_strength": 0
+    },
+    {
+      "category": "gensomining:nitre_vein",
+      "weight": 0.8,
+      "variants": {
+        "gensomining:nitre_vein": 100,
+        "gensomining:pure_nitre_vein": 0
+      },
+      "priority": 0,
+      "geology_strength": 0
+    },
+    {
+      "category": "gensomining:sulfur_vein",
+      "weight": 0.6,
+      "variants": {
+        "gensomining:sulfur_vein": 100,
+        "gensomining:pure_sulfur_vein": 0
+      },
+      "priority": 0,
+      "geology_strength": 0
+    },
+    {
+      "category": "gensomining:rose_quartz_cluster",
+      "weight": 0.3,
+      "variants": {
+        "gensomining:rose_quartz_cluster": 100,
+        "gensomining:pure_rose_quartz_cluster": 0
+      },
+      "priority": 0,
+      "geology_strength": 0,
+      "requires_mod": "biomesoplenty"
+    }
+  ],
+  "biome_profiles": [
+    {
+      "id": "nether_forests",
+      "priority": 10,
+      "biomes": [
+        "minecraft:crimson_forest",
+        "minecraft:warped_forest"
+      ],
+      "category_multipliers": {
+        "gensomining:nitre_vein": 20
+      },
+      "variant_weights": {
+        "gensomining:nitre_vein": {
+          "gensomining:nitre_vein": 90,
+          "gensomining:pure_nitre_vein": 10
+        }
+      },
+      "influence": 1,
+      "districts": {
+        "min_veins": 3,
+        "max_veins": 8
+      }
+    },
+    {
+      "id": "basalt_deltas",
+      "priority": 10,
+      "biomes": [
+        "minecraft:basalt_deltas"
+      ],
+      "category_multipliers": {
+        "gensomining:sulfur_vein": 26.666666666666668
+      },
+      "variant_weights": {
+        "gensomining:sulfur_vein": {
+          "gensomining:sulfur_vein": 90,
+          "gensomining:pure_sulfur_vein": 10
+        }
+      },
+      "influence": 1,
+      "districts": {
+        "min_veins": 3,
+        "max_veins": 8
+      }
+    },
+    {
+      "id": "visceral_heap",
+      "priority": 100,
+      "biomes": [
+        "biomesoplenty:visceral_heap"
+      ],
+      "category_multipliers": {
+        "gensomining:nitre_vein": 40
+      },
+      "variant_weights": {
+        "gensomining:nitre_vein": {
+          "gensomining:nitre_vein": 75,
+          "gensomining:pure_nitre_vein": 25
+        }
+      },
+      "influence": 1,
+      "districts": {
+        "min_veins": 3,
+        "max_veins": 8
+      },
+      "requires_mod": "biomesoplenty"
+    },
+    {
+      "id": "erupting_inferno",
+      "priority": 100,
+      "biomes": [
+        "biomesoplenty:erupting_inferno"
+      ],
+      "category_multipliers": {
+        "gensomining:sulfur_vein": 53.333333333333336
+      },
+      "variant_weights": {
+        "gensomining:sulfur_vein": {
+          "gensomining:sulfur_vein": 75,
+          "gensomining:pure_sulfur_vein": 25
+        }
+      },
+      "influence": 1,
+      "districts": {
+        "min_veins": 3,
+        "max_veins": 8
+      },
+      "requires_mod": "biomesoplenty"
+    },
+    {
+      "id": "crystalline_chasm",
+      "priority": 100,
+      "biomes": [
+        "biomesoplenty:crystalline_chasm"
+      ],
+      "category_multipliers": {
+        "gensomining:rose_quartz_cluster": 106.66666666666667
+      },
+      "variant_weights": {
+        "gensomining:rose_quartz_cluster": {
+          "gensomining:rose_quartz_cluster": 75,
+          "gensomining:pure_rose_quartz_cluster": 25
+        }
+      },
+      "influence": 1,
+      "districts": {
+        "min_veins": 3,
+        "max_veins": 8
+      },
+      "requires_mod": "biomesoplenty"
+    }
+  ],
+  "districts": {
+    "min_veins": 2,
+    "max_veins": 4,
+    "patch_fraction": 0.65,
+    "member_step_chunks": 3,
+    "radius_chunks": 12,
+    "edge_gap_chunks": 1,
+    "link_distance_chunks": 6,
+    "placement_attempts": 36,
+    "environment_radius_chunks": 2
+  }
+}

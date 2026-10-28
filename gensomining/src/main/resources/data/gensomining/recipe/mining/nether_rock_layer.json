@@ -1,0 +1,67 @@
+{
+  "type": "gensomining:mining",
+  "vein_id": "gensomining:nether_rock_layer",
+  "display_block": "minecraft:netherrack",
+  "stress": 16,
+  "processing_time": 6400,
+  "ingredients": [],
+  "results": [
+    {
+      "id": "minecraft:netherrack",
+      "result_id": "stone",
+      "count": 2,
+      "chance": 0.8,
+      "roll_mode": "per_item"
+    },
+    {
+      "id": "minecraft:quartz",
+      "result_id": "quartz",
+      "count": 1,
+      "chance": 0.1,
+      "roll_mode": "per_item"
+    }
+  ],
+  "modifiers": {
+    "lubricants": [
+      {
+        "id": "water",
+        "input": {
+          "type": "neoforge:single",
+          "fluid": "minecraft:water",
+          "amount": 100
+        },
+        "effects": {
+          "time_multiplier": 0.75,
+          "stress_multiplier": 0.75
+        },
+        "neoforge:conditions": [
+          {
+            "type": "gensomining:fluid_tag_empty",
+            "tag": "c:plantoil"
+          }
+        ]
+      },
+      {
+        "id": "plant_oil",
+        "input": {
+          "type": "neoforge:tag",
+          "tag": "c:plantoil",
+          "amount": 100
+        },
+        "effects": {
+          "time_multiplier": 0.75,
+          "stress_multiplier": 0.75
+        },
+        "neoforge:conditions": [
+          {
+            "type": "neoforge:not",
+            "value": {
+              "type": "gensomining:fluid_tag_empty",
+              "tag": "c:plantoil"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

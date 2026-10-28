@@ -1,0 +1,71 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "1": "create:block/girder_pole",
+    "3": "create:block/encased_pipe",
+    "4": "create:block/spout",
+    "5": "create:block/pipes",
+    "6": "create:block/pipes_connected",
+    "7": "create:block/andesite_casing",
+    "8": "create:block/andesite_casing_connected",
+    "9": "create:block/gearbox",
+    "10": "create:block/andesite_casing_very_short",
+    "11": "create:block/funnel/andesite_funnel",
+    "12": "create:block/packager_details",
+    "14": "create:block/fan_side",
+    "15": "create:block/fan_casing",
+    "16": "create:block/fan_blades",
+    "17": "create:block/axis",
+    "18": "create:block/axis_top",
+    "20": "block/anvil",
+    "21": "gensomining:block/mechanical_miner",
+    "particle": "create:block/girder",
+    "funnel_open": "gensomining:block/mechanical_miner_funnel"
+  },
+  "elements": [
+    {
+      "name": "funnel",
+      "from": [
+        2,
+        2,
+        -2
+      ],
+      "to": [
+        14,
+        13.999,
+        0
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          8,
+          5,
+          -4.5
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            0,
+            12,
+            6
+          ],
+          "texture": "#11"
+        },
+        "south": {
+          "uv": [
+            6,
+            0,
+            12,
+            6
+          ],
+          "texture": "#11"
+        }
+      }
+    }
+  ],
+  "ambientocclusion": false,
+  "render_type": "minecraft:cutout_mipped"
+}

@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#c:is_mountain",
+    "#c:is_plateau",
+    "#c:is_hill"
+  ]
+}

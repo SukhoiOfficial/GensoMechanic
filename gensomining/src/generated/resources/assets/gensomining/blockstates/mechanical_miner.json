@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "gensomining:block/mechanical_miner/block",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "gensomining:block/mechanical_miner/block"
+    },
+    "facing=south": {
+      "model": "gensomining:block/mechanical_miner/block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "gensomining:block/mechanical_miner/block",
+      "y": 270
+    }
+  }
+}
