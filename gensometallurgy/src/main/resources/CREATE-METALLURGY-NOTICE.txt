@@ -1,0 +1,25 @@
+Create: Metallurgy — imported molten-metal textures
+
+Copyright (c) 2024 Luc_Creeper74
+License: MIT
+Project: https://github.com/Lucreeper74/Create-Metallurgy
+Verified revision: 5fb32edce2753d72150dcf798bebb6d5940d29d0
+License source:
+https://github.com/Lucreeper74/Create-Metallurgy/blob/5fb32edce2753d72150dcf798bebb6d5940d29d0/LICENSE
+
+Scope in this distribution:
+assets/gensometallurgy/textures/fluid/molten_metals/{brass,copper,gold,iron,netherite,zinc}/
+Each directory contains still.png, flowing.png, and their .png.mcmeta files.
+
+Upstream source:
+src/main/resources/assets/createmetallurgy/textures/fluid/{metal}/
+
+All 24 files are byte-identical to the verified upstream revision. Only the
+directory and namespace used to reference them have changed. They are third-party
+MIT material, not Genso Mechanic's original CC BY 4.0 models and textures.
+
+The complete upstream license is included at
+META-INF/licenses/Create-Metallurgy-MIT.txt.
+
+本模块的六种熔融金属流体贴图及动画元数据来自 Create: Metallurgy，
+保留上游 MIT 许可与版权声明，不纳入本项目原创美术的 CC BY 4.0 范围。

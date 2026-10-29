@@ -2,7 +2,7 @@ apply from: rootProject.file('gradle/platform.gradle')
 if (project.hasProperty('modReleaseVersion')) version = modReleaseVersion
 
 // Release filenames use the product name; registry IDs remain project.name.
-def releaseNames = [gensocore: 'GensoCore', gensomining: 'GensoMining']
+def releaseNames = [gensocore: 'GensoCore', gensomining: 'GensoMining', gensometallurgy: 'GensoMetallurgy']
 base { archivesName = releaseNames[project.name] }
 java { withSourcesJar() }
 def ownModId = project.name

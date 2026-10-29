@@ -1,0 +1,97 @@
+ext.modDisplayName = 'Genso Metallurgy'
+ext.modDescription = 'Metallurgical machines and molten metals for Genso Mechanic.'
+ext.modReleaseVersion = '0.1.2'
+apply from: rootProject.file('gradle/mod.gradle')
+
+repositories {
+    maven { url = 'https://api.modrinth.com/maven'; content { includeGroup 'maven.modrinth' } }
+    maven { url = 'https://maven.blamejared.com'; content { includeGroup 'mezz.jei' } }
+}
+sourceSets {
+    main.resources { srcDir 'src/generated/resources'; exclude '**/.cache/**', '**/*.bbmodel' }
+    gameTest { compileClasspath += sourceSets.main.output; runtimeClasspath += sourceSets.main.output }
+}
+if (providers.gradleProperty('metallurgyNoRecipes').isPresent()) {
+    if (!providers.gradleProperty('withGameTests').isPresent())
+        throw new GradleException('The empty-recipe fixture requires -PwithGameTests.')
+    // Keep the historical empty-data scenario available after adding built-in recipes.
+    sourceSets.main.resources.exclude 'data/gensometallurgy/recipe/**', 'data/create/recipe/**'
+    sourceSets.gameTest.resources.exclude 'data/gensometallurgy_test/recipe/**'
+}
+if (providers.gradleProperty('withoutJade').isPresent()) {
+    sourceSets.gameTest.java.exclude '**/compat/jade/**'
+}
+configurations {
+    gameTestImplementation.extendsFrom implementation
+    gameTestCompileOnly.extendsFrom compileOnly
+    gameTestRuntimeOnly.extendsFrom runtimeOnly
+}
+dependencies {
+    compileOnly 'mezz.jei:jei-1.21.1-common-api:19.21.0.247'
+    compileOnly 'mezz.jei:jei-1.21.1-neoforge-api:19.21.0.247'
+    compileOnly 'maven.modrinth:jade:15.10.6+neoforge'
+    if (!providers.gradleProperty('withoutJei').isPresent()) runtimeOnly 'mezz.jei:jei-1.21.1-neoforge:19.21.0.247'
+    if (!providers.gradleProperty('withoutJade').isPresent()) runtimeOnly 'maven.modrinth:jade:15.10.6+neoforge'
+    gameTestCompileOnly "dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}"
+}
+tasks.named('generateModMetadata') {
+    inputs.property('metallurgyMixin', 'gensometallurgy.mixins.json')
+    doLast { new File(destinationDir, 'META-INF/neoforge.mods.toml').append('\n[[mixins]]\nconfig="gensometallurgy.mixins.json"\n', 'UTF-8') }
+}
+evaluationDependsOn(':gensocore')
+def withTests = providers.gradleProperty('withGameTests').isPresent()
+neoForge {
+    addModdingDependenciesTo sourceSets.gameTest
+    mods {
+        gensocore { sourceSet project(':gensocore').sourceSets.main }
+        gensometallurgy { if (withTests) sourceSet sourceSets.gameTest }
+    }
+    runs {
+        client {
+            client(); gameDirectory = file('run/client')
+            if (withTests) sourceSet = sourceSets.gameTest
+            if (providers.gradleProperty('metallurgyClientCheck').isPresent()) systemProperty 'gensometallurgy.clientCheck', 'true'
+            if (providers.gradleProperty('metallurgyNoRecipes').isPresent()) systemProperty 'gensometallurgy.noRecipes', 'true'
+        }
+        server { server(); gameDirectory = file('run/server'); programArgument '--nogui' }
+        data {
+            data(); gameDirectory = file('run/data')
+            programArguments.addAll '--mod', project.name, '--all', '--output', file('src/generated/resources').absolutePath,
+                    '--existing', file('src/main/resources').absolutePath
+        }
+        gameTestServer {
+            type = 'gameTestServer'; sourceSet = sourceSets.gameTest
+            gameDirectory = file('run/gametest')
+            systemProperty 'neoforge.enabledGameTestNamespaces', providers.gradleProperty('gameTestNamespace').getOrElse(project.name)
+        }
+        configureEach { logLevel = org.slf4j.event.Level.INFO }
+    }
+}
+tasks.named('check') { dependsOn tasks.named('gameTestClasses') }
+
+def metallurgyEmptyRecipeFixture = providers.gradleProperty('metallurgyNoRecipes').isPresent()
+tasks.withType(Jar).configureEach {
+    doFirst {
+        if (metallurgyEmptyRecipeFixture)
+            throw new GradleException('Do not package the empty-recipe runtime fixture; omit -PmetallurgyNoRecipes.')
+    }
+}
+def metallurgyGameTestLog = file('run/gametest/logs/latest.log')
+tasks.named('runGameTestServer') {
+    doFirst { if (!withTests) throw new GradleException('Use -PwithGameTests for isolated metallurgy tests.') }
+    doLast {
+        if (!(metallurgyGameTestLog.getText('UTF-8') =~ /All [1-9][0-9]* required tests passed/))
+            throw new GradleException('No successful metallurgy GameTest summary; inspect the server log.')
+    }
+}
+def metallurgyClientCheck = providers.gradleProperty('metallurgyClientCheck').isPresent()
+def metallurgyClientLog = file('run/client/logs/latest.log')
+tasks.named('runClient') {
+    doFirst {
+        if (metallurgyClientCheck && !withTests) throw new GradleException('Client checks require -PwithGameTests.')
+    }
+    doLast {
+        if (metallurgyClientCheck && !metallurgyClientLog.getText('UTF-8').contains('METALLURGY CLIENT PASS'))
+            throw new GradleException('Metallurgy client checks did not pass; inspect the client log.')
+    }
+}

@@ -16,6 +16,18 @@
 
 构建脚本通过依赖管理获取第三方库；第三方模组 JAR 不属于本项目的源码或美术资源。Gradle Wrapper 等自带许可声明的工具文件继续适用其原有许可。
 
+## Create: Metallurgy 流体材质
+
+- 作者/版权：**Luc_Creeper74**，Copyright (c) 2024 Luc_Creeper74。
+- 来源：[Lucreeper74/Create-Metallurgy](https://github.com/Lucreeper74/Create-Metallurgy)。
+- 许可：[MIT 全文](LICENSES/Create-Metallurgy-MIT.txt)，[上游固定版本许可](https://github.com/Lucreeper74/Create-Metallurgy/blob/5fb32edce2753d72150dcf798bebb6d5940d29d0/LICENSE)。
+- 上游路径：`src/main/resources/assets/createmetallurgy/textures/fluid/{metal}/`。
+- 本项目路径：`gensometallurgy/src/main/resources/assets/gensometallurgy/textures/fluid/molten_metals/{metal}/`。
+- 金属：`brass`、`copper`、`gold`、`iron`、`netherite`、`zinc`；每种的 `still.png`、`flowing.png` 及两份 `.png.mcmeta`，共 24 文件。
+- 2026-10-29 核对上游提交 `5fb32edce2753d72150dcf798bebb6d5940d29d0`：24 文件逐字节一致；只调整存放路径和引用命名空间。完整许可与专门来源说明同时包含在冶金 JAR 中。
+
+这些文件保留上游 MIT，不纳入本项目原创美术的 CC BY 4.0。引用材质不表示 Create: Metallurgy 是本模块的运行依赖或为本项目背书。
+
 ## 原创美术资源署名示例
 
 > Models and textures from Genso Mechanic by Sukhoi / SukhoiOfficial, licensed under CC BY 4.0. Source: https://github.com/SukhoiOfficial/GensoMechanic. License: https://creativecommons.org/licenses/by/4.0/. Changes: describe your modifications here, or state that the assets are unchanged.

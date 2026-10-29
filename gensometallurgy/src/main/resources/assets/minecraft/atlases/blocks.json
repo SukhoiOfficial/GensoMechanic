@@ -1,0 +1,52 @@
+{
+  "sources": [
+    {
+      "type": "minecraft:single",
+      "resource": "gensometallurgy:fluid/molten_metals/brass/still"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "gensometallurgy:fluid/molten_metals/brass/flowing"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "gensometallurgy:fluid/molten_metals/copper/still"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "gensometallurgy:fluid/molten_metals/copper/flowing"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "gensometallurgy:fluid/molten_metals/gold/still"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "gensometallurgy:fluid/molten_metals/gold/flowing"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "gensometallurgy:fluid/molten_metals/iron/still"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "gensometallurgy:fluid/molten_metals/iron/flowing"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "gensometallurgy:fluid/molten_metals/netherite/still"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "gensometallurgy:fluid/molten_metals/netherite/flowing"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "gensometallurgy:fluid/molten_metals/zinc/still"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "gensometallurgy:fluid/molten_metals/zinc/flowing"
+    }
+  ]
+}

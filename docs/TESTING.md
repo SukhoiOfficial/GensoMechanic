@@ -45,3 +45,19 @@ GameTest 在 `gensomining/run/gametest/` 中创建独立测试环境。测试会
 测试目录保留机器、顶部仓口、润滑条件、炸药、岩石背景、扫描报告、下界机制及客户端资源检查。历史矿脉分布仿真、候选算法比较、统计样本和绘图输出不属于这组回归测试，不以历史分布指标作为当前版本验收要求。
 
 本文件说明测试用途和运行方式，不将任何尚未执行的检查标记为通过。应在具体变更中记录执行命令、结果和验证边界。
+
+## 冶金测试入口
+
+`gensometallurgy/src/gameTest` 保留机器接口、库存/流体边界、Jade 和客户端检查；测试源码及结构不进入发行 JAR。
+下列入口用于按改动需要选择运行，本次开源准备没有执行这些游戏测试。
+
+```sh
+./gradlew :gensometallurgy:runGameTestServer -PwithGameTests -PgameTestNamespace=gensometallurgy,gensometallurgy_jade
+./gradlew :gensometallurgy:runGameTestServer -PwithGameTests -PmetallurgyNoRecipes -PwithoutJei -PwithoutJade -PgameTestNamespace=gensometallurgy_empty
+./gradlew :gensometallurgy:runClient -PwithGameTests -PmetallurgyClientCheck -PmetallurgyNoRecipes
+```
+
+先单独完成 `:gensometallurgy:runData`。无查看器客户端可追加 `-PwithoutJei -PwithoutJade`。
+空配方参数同时排除内置与测试配方，用于储存/展示的历史空数据场景，不是正式版本的默认行为；此模式禁止 Jar 打包。
+客户端检查自动创建独立世界、推进思索、绘制并重载，完成后退出，以 `METALLURGY CLIENT PASS` 为结果入口；不是人工验收。
+公开副本不包括依赖未公开农业发行包的共存夹具；不改变生产代码和数据。

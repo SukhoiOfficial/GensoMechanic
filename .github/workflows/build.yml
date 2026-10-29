@@ -25,12 +25,12 @@ jobs:
           java-version: '21'
       - uses: gradle/actions/setup-gradle@3f5f9adaf7d9fecd50b5935e54106014257a94e6 # v6
       - name: Generate resources
-        run: ./gradlew :gensomining:runData --console=plain
+        run: ./gradlew :gensomining:runData :gensometallurgy:runData --console=plain
       - name: Check generated resources are committed
         run: |
-          git diff --exit-code -- gensomining/src/generated/resources
-          test -z "$(git ls-files --others --exclude-standard gensomining/src/generated/resources)"
-      - name: Build both modules
+          git diff --exit-code -- gensomining/src/generated/resources gensometallurgy/src/generated/resources
+          test -z "$(git ls-files --others --exclude-standard gensomining/src/generated/resources gensometallurgy/src/generated/resources)"
+      - name: Build all modules
         run: ./gradlew build --console=plain
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:

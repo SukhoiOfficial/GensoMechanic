@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.gensomechanic.metallurgy.compat.create",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "BlazeBurnerFurnaceMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "gensometallurgy:casting",
+  "ingredients": [
+    {
+      "type": "neoforge:tag",
+      "tag": "gensometallurgy:molten_metals/copper",
+      "amount": 90
+    }
+  ],
+  "results": [
+    {
+      "tag": "c:ingots/copper"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:ingots/copper"
+      }
+    }
+  ],
+  "processing_time": 80
+}

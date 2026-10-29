@@ -1,0 +1,7 @@
+{
+  "parent": "gensometallurgy:block/industrial_blast_furnace/block_single_edge",
+  "textures": {
+    "1": "gensometallurgy:block/industrial_blast_furnace/window"
+  },
+  "render_type": "minecraft:cutout_mipped"
+}

@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "#gensometallurgy:molten_metals/copper",
+    "#gensometallurgy:molten_metals/zinc",
+    "#gensometallurgy:molten_metals/iron",
+    "#gensometallurgy:molten_metals/gold",
+    "#gensometallurgy:molten_metals/brass",
+    "#gensometallurgy:molten_metals/netherite"
+  ]
+}

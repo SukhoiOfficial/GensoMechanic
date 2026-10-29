@@ -1,0 +1,25 @@
+{
+  "type": "gensometallurgy:blast_furnace_smelting",
+  "ingredients": [
+    {
+      "tag": "c:ingots/iron"
+    }
+  ],
+  "results": [
+    {
+      "id": "gensometallurgy:molten_iron",
+      "amount": 90
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:ingots/iron"
+      }
+    }
+  ],
+  "processing_time": 200,
+  "heat_requirement": "heated"
+}

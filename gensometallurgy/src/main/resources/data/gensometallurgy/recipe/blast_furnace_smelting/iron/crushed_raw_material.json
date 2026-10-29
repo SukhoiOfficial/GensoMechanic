@@ -1,0 +1,35 @@
+{
+  "type": "gensometallurgy:blast_furnace_smelting",
+  "ingredients": [
+    {
+      "item": "create:crushed_raw_iron"
+    },
+    {
+      "tag": "c:dusts/coal"
+    }
+  ],
+  "results": [
+    {
+      "id": "gensometallurgy:molten_iron",
+      "amount": 180
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:ingots/iron"
+      }
+    },
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:dusts/coal"
+      }
+    }
+  ],
+  "processing_time": 200,
+  "heat_requirement": "heated"
+}

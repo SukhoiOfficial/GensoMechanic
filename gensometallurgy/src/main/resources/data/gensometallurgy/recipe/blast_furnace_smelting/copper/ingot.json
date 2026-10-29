@@ -1,0 +1,25 @@
+{
+  "type": "gensometallurgy:blast_furnace_smelting",
+  "ingredients": [
+    {
+      "tag": "c:ingots/copper"
+    }
+  ],
+  "results": [
+    {
+      "id": "gensometallurgy:molten_copper",
+      "amount": 90
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:ingots/copper"
+      }
+    }
+  ],
+  "processing_time": 200,
+  "heat_requirement": "heated"
+}

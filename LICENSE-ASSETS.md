@@ -22,13 +22,29 @@ gensomining/src/main/resources/assets/gensomining/models/
 gensomining/src/main/resources/assets/gensomining/textures/
 gensomining/src/generated/resources/assets/gensomining/models/
 gensomining/src/generated/resources/assets/gensomining/textures/
+gensometallurgy/src/main/resources/assets/gensometallurgy/models/
+gensometallurgy/src/main/resources/assets/gensometallurgy/textures/
+gensometallurgy/src/generated/resources/assets/gensometallurgy/models/
+gensometallurgy/src/generated/resources/assets/gensometallurgy/textures/
 ```
 
 Some listed directories may not exist in a particular version. Listing a path does not assert that the version contains files there.
 
-In the built JARs, the same license applies to the corresponding original files under `assets/gensocore/models/`, `assets/gensocore/textures/`, `assets/gensomining/models/` and `assets/gensomining/textures/`. Model files generated into the paths above are included in this scope.
+In the built JARs, the same license applies to the corresponding original files under `assets/gensocore/models/`, `assets/gensocore/textures/`, `assets/gensomining/models/` `assets/gensomining/textures/`, `assets/gensometallurgy/models/` and `assets/gensometallurgy/textures/`, subject to the exception below. Model files generated into the paths above are included in this scope.
 
 Source code, recipes, tags, other data configurations, blockstate definitions, language files and project documentation remain under the [MIT license](LICENSE), except for files carrying their own third-party license notices. This asset license does not grant rights to referenced external resources, dependencies, trademarks or third-party material.
+
+## Third-party exception: molten-metal fluids
+
+`gensometallurgy/src/main/resources/assets/gensometallurgy/textures/fluid/molten_metals/`
+and the corresponding JAR path `assets/gensometallurgy/textures/fluid/molten_metals/`
+are **excluded from CC BY 4.0**. Their six sets of still/flowing PNGs and animation
+metadata come from Create: Metallurgy, Copyright (c) 2024 Luc_Creeper74, under MIT.
+The 24 files are unchanged apart from their paths. See [CREDITS.md](CREDITS.md)
+and the [complete upstream MIT license](LICENSES/Create-Metallurgy-MIT.txt).
+
+冶金模块的六种熔融金属贴图及动画元数据保留上游 MIT 许可，不是 Sukhoi 的原创美术，
+不适用本项目的 CC BY 4.0 声明。游戏截图所包含的第三方游戏和模组内容仍适用各自权利。
 
 ## Attribution
 

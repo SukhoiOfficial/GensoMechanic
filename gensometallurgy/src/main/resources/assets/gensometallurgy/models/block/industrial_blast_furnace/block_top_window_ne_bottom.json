@@ -1,0 +1,195 @@
+{
+  "credit": "Generated for Create: Processing Additions",
+  "parent": "block/block",
+  "textures": {
+    "top": "gensometallurgy:block/industrial_blast_furnace/top",
+    "casing": "gensometallurgy:block/industrial_blast_furnace/casing",
+    "inner": "gensometallurgy:block/industrial_blast_furnace/inner",
+    "window": "gensometallurgy:block/industrial_blast_furnace/window",
+    "window_single": "gensometallurgy:block/industrial_blast_furnace/window_single",
+    "particle": "gensometallurgy:block/industrial_blast_furnace/casing"
+  },
+  "elements": [
+    {
+      "from": [
+        4.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        3.0
+      ],
+      "faces": {
+        "north": {
+          "texture": "#casing",
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#casing",
+          "cullface": "north"
+        },
+        "west": {
+          "texture": "#casing",
+          "cullface": "north"
+        },
+        "up": {
+          "texture": "#top",
+          "cullface": "up"
+        }
+      }
+    },
+    {
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        4.0,
+        4.0,
+        3.0
+      ],
+      "faces": {
+        "north": {
+          "texture": "#casing",
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#casing",
+          "cullface": "north"
+        },
+        "up": {
+          "texture": "#casing",
+          "cullface": "north"
+        }
+      }
+    },
+    {
+      "from": [
+        0.0,
+        4.0,
+        2.0
+      ],
+      "to": [
+        4.0,
+        16.0,
+        3.0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            4,
+            4,
+            16
+          ],
+          "texture": "#window",
+          "cullface": "north"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            8,
+            16
+          ],
+          "texture": "#window",
+          "cullface": "north"
+        }
+      }
+    },
+    {
+      "from": [
+        13.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        12.0
+      ],
+      "faces": {
+        "east": {
+          "texture": "#casing",
+          "cullface": "east"
+        },
+        "west": {
+          "texture": "#casing",
+          "cullface": "east"
+        },
+        "south": {
+          "texture": "#casing",
+          "cullface": "east"
+        },
+        "up": {
+          "texture": "#top",
+          "cullface": "up"
+        }
+      }
+    },
+    {
+      "from": [
+        13.0,
+        0.0,
+        12.0
+      ],
+      "to": [
+        16.0,
+        4.0,
+        16.0
+      ],
+      "faces": {
+        "east": {
+          "texture": "#casing",
+          "cullface": "east"
+        },
+        "west": {
+          "texture": "#casing",
+          "cullface": "east"
+        },
+        "up": {
+          "texture": "#casing",
+          "cullface": "east"
+        }
+      }
+    },
+    {
+      "from": [
+        13.0,
+        4.0,
+        12.0
+      ],
+      "to": [
+        14.0,
+        16.0,
+        16.0
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            4,
+            4,
+            8,
+            16
+          ],
+          "texture": "#window",
+          "cullface": "east"
+        },
+        "west": {
+          "uv": [
+            0,
+            4,
+            4,
+            16
+          ],
+          "texture": "#window",
+          "cullface": "east"
+        }
+      }
+    }
+  ],
+  "render_type": "minecraft:cutout_mipped"
+}

@@ -1,0 +1,46 @@
+{
+  "type": "gensometallurgy:blast_furnace_fusing",
+  "ingredients": [
+    {
+      "type": "neoforge:tag",
+      "tag": "gensometallurgy:molten_metals/copper",
+      "amount": 10
+    },
+    {
+      "type": "neoforge:tag",
+      "tag": "gensometallurgy:molten_metals/zinc",
+      "amount": 10
+    }
+  ],
+  "results": [
+    {
+      "id": "gensometallurgy:molten_brass",
+      "amount": 20
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:ingots/brass"
+      }
+    },
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:ingots/copper"
+      }
+    },
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:ingots/zinc"
+      }
+    }
+  ],
+  "processing_time": 200,
+  "heat_requirement": "heated"
+}

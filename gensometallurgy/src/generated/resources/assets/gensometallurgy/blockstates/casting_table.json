@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "gensometallurgy:block/casting_table",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "gensometallurgy:block/casting_table"
+    },
+    "facing=south": {
+      "model": "gensometallurgy:block/casting_table",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "gensometallurgy:block/casting_table",
+      "y": 270
+    }
+  }
+}

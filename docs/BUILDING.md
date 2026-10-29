@@ -7,26 +7,27 @@
 安装 JDK 21，将 `JAVA_HOME` 指向该 JDK。在仓库根目录依次执行，等待第一条命令成功结束后再运行第二条：
 
 ```sh
-./gradlew :gensomining:runData
+./gradlew :gensomining:runData :gensometallurgy:runData
 ./gradlew build
 ```
 
 Windows PowerShell：
 
 ```powershell
-./gradlew.bat :gensomining:runData
+./gradlew.bat :gensomining:runData :gensometallurgy:runData
 ./gradlew.bat build
 ```
 
-首次构建需要联网下载 Gradle 和声明的依赖。使用仓库附带的 Wrapper，无需另行安装 Gradle。资源生成写入 `gensomining/src/generated/resources/`；其中的正式资源应随源码提交，`.cache` 不提交。
+首次构建需要联网下载 Gradle 和声明的依赖。使用仓库附带的 Wrapper，无需另行安装 Gradle。资源生成分别写入 `gensomining/src/generated/resources/` 与 `gensometallurgy/src/generated/resources/`；其中的正式资源应随源码提交，`.cache` 不提交。
 
 构建输出包括：
 
 - `gensocore/build/libs/GensoCore-0.4.1.jar` 及其源码 JAR。
 - `gensomining/build/libs/GensoMining-0.1.6.jar` 及其源码 JAR。
+- `gensometallurgy/build/libs/GensoMetallurgy-0.1.2.jar` 及其源码 JAR。
 - 根构建汇总目录 `build/distributions/`。
 
-Genso Mining 需要 Genso Core，Genso Core 需要 Create。测试代码与测试结构位于独立源集，不进入上述生产 JAR 或源码 JAR。`build` 会编译测试源码，但不会执行 GameTest，执行入口见 [TESTING.md](TESTING.md)。
+Genso Mining 与 Genso Metallurgy 各自需要 Genso Core，Genso Core 需要 Create；两项业务互不依赖。测试代码与测试结构位于独立源集，不进入上述生产 JAR 或源码 JAR。`build` 会编译测试源码，但不会执行 GameTest，执行入口见 [TESTING.md](TESTING.md)。
 
 ## 开发启动
 
@@ -38,6 +39,16 @@ Genso Mining 需要 Genso Core，Genso Core 需要 Create。测试代码与测�
 采矿开发启动同时加载核心与采矿模块。客户端与服务端运行数据分别保存在 `gensomining/run/client/`、`gensomining/run/server/`，这些本地目录不提交。
 
 JEI 与 Jade 默认加入开发运行环境。可通过 `-PwithoutJei`、`-PwithoutJade` 分别关闭。若启动测试客户端，需按 [TESTING.md](TESTING.md) 选择与依赖组合匹配的检查入口。
+
+## 冶金开发启动
+
+```sh
+./gradlew :gensometallurgy:runClient
+./gradlew :gensometallurgy:runServer
+```
+
+冶金开发启动加载核心与冶金，运行目录位于 `gensometallurgy/run/`。
+JEI/Jade 开关与采矿相同。公开构建不需要旧模板工程、个人游戏实例或未公开的农业发行包。
 
 ## Xaero 地图
 

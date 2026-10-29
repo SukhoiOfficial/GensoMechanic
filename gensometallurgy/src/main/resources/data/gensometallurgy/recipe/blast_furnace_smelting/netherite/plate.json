@@ -1,0 +1,32 @@
+{
+  "type": "gensometallurgy:blast_furnace_smelting",
+  "ingredients": [
+    {
+      "tag": "c:plates/netherite"
+    }
+  ],
+  "results": [
+    {
+      "id": "gensometallurgy:molten_netherite",
+      "amount": 90
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:ingots/netherite"
+      }
+    },
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:plates/netherite"
+      }
+    }
+  ],
+  "processing_time": 200,
+  "heat_requirement": "superheated"
+}

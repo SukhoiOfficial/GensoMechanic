@@ -1,0 +1,32 @@
+{
+  "type": "gensometallurgy:blast_furnace_smelting",
+  "ingredients": [
+    {
+      "tag": "c:plates/zinc"
+    }
+  ],
+  "results": [
+    {
+      "id": "gensometallurgy:molten_zinc",
+      "amount": 90
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:ingots/zinc"
+      }
+    },
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:plates/zinc"
+      }
+    }
+  ],
+  "processing_time": 200,
+  "heat_requirement": "heated"
+}

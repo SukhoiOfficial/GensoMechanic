@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "gensometallurgy:item/andesite_alloy_dust"
+  }
+}
